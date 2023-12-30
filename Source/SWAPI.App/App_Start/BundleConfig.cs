@@ -24,6 +24,7 @@ namespace SWAPI.App
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/accordion.css",
                       "~/Content/site.css"));
         }
     }

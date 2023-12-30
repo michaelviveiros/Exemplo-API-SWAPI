@@ -1,0 +1,564 @@
+﻿@model SWAPI.App.Models.SwapiFilmsViewModel
+
+@{
+    ViewBag.Title = "Films";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br/><br />
+<div class="container">
+    <h2>Films</h2>
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#PersonalData">Personal Data</a></li>
+        <li><a data-toggle="tab" href="#Characters">Characters</a></li>
+        <li><a data-toggle="tab" href="#Planets">Planets</a></li>
+        <li><a data-toggle="tab" href="#Vehicles">Vehicles</a></li>
+        <li><a data-toggle="tab" href="#Species">Species</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="PersonalData" class="tab-pane fade in active">
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Title</label>
+                        @Html.TextBoxFor(model => model.title, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Episode Id</label>
+                        @Html.TextBoxFor(model => model.episode_id, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Director</label>
+                        @Html.TextBoxFor(model => model.director, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Producer</label>
+                        @Html.TextBoxFor(model => model.producer, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Release Date</label>
+                        @Html.TextBoxFor(model => model.release_date, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Created Date</label>
+                        @Html.TextBoxFor(model => model.created, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Edited Date</label>
+                        @Html.TextBoxFor(model => model.edited, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>URL</label>
+                        @Html.TextBoxFor(model => model.url, new { @class = "form-control", @readonly = "readonly", @style = "width:100% !important;" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Opening Crawl</label>
+                        @Html.TextAreaFor(model => model.opening_crawl, new { @class = "form-control", @readonly = "readonly", @rows = 8, @style = "max-width:100% !important;" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Characters" class="tab-pane fade">
+            <br />
+            @if (Model.Peoples != null)
+            {
+                foreach (var characters in Model.Peoples)
+                {
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        People: @characters.name
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                @Html.TextBoxFor(model => characters.name, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Height</label>
+                                                @Html.TextBoxFor(model => characters.height, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Mass</label>
+                                                @Html.TextBoxFor(model => characters.mass, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Hair Color</label>
+                                                @Html.TextBoxFor(model => characters.hair_color, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Skin Color</label>
+                                                @Html.TextBoxFor(model => characters.skin_color, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Eye Color</label>
+                                                @Html.TextBoxFor(model => characters.eye_color, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Birth Year</label>
+                                                @Html.TextBoxFor(model => characters.birth_year, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Gender</label>
+                                                @Html.TextBoxFor(model => characters.gender, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Homeworld</label>
+                                                @Html.TextBoxFor(model => characters.homeworld, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Created Date</label>
+                                                @Html.TextBoxFor(model => characters.created, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Edited Date</label>
+                                                @Html.TextBoxFor(model => characters.edited, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>URL</label>
+                                                @Html.TextBoxFor(model => characters.url, new { @class = "form-control", @readonly = "readonly", @style = "width:100% !important;" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div id="Planets" class="tab-pane fade">
+            <br />
+            @if (Model.Planetas != null)
+            {
+                foreach (var planets in Model.Planetas)
+                {
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse" aria-expanded="true" aria-controls="collapseTwo">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Planet: @planets.name
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                @Html.TextBoxFor(model => planets.name, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Rotation Period</label>
+                                                @Html.TextBoxFor(model => planets.rotation_period, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Orbital Period</label>
+                                                @Html.TextBoxFor(model => planets.orbital_period, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Diameter</label>
+                                                @Html.TextBoxFor(model => planets.diameter, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Climate</label>
+                                                @Html.TextBoxFor(model => planets.climate, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Gravity</label>
+                                                @Html.TextBoxFor(model => planets.gravity, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Terrain</label>
+                                                @Html.TextBoxFor(model => planets.terrain, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Surface Water</label>
+                                                @Html.TextBoxFor(model => planets.surface_water, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Population</label>
+                                                @Html.TextBoxFor(model => planets.population, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Created Date</label>
+                                                @Html.TextBoxFor(model => planets.created, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Edited Date</label>
+                                                @Html.TextBoxFor(model => planets.edited, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>URL</label>
+                                                @Html.TextBoxFor(model => planets.url, new { @class = "form-control", @readonly = "readonly", @style = "width:100% !important;" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div id="Vehicles" class="tab-pane fade">
+            <br />
+            @if (Model.Veiculos != null)
+            {
+                foreach (var veiculos in Model.Veiculos)
+                {
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTree">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse" aria-expanded="true" aria-controls="collapseTree">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Vehicle: @veiculos.name
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTree">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                @Html.TextBoxFor(model => veiculos.name, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Model</label>
+                                                @Html.TextBoxFor(model => veiculos.model, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Manufacturer</label>
+                                                @Html.TextBoxFor(model => veiculos.manufacturer, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Cost In Credits</label>
+                                                @Html.TextBoxFor(model => veiculos.cost_in_credits, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Length</label>
+                                                @Html.TextBoxFor(model => veiculos.length, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Max Atmosphering Speed</label>
+                                                @Html.TextBoxFor(model => veiculos.max_atmosphering_speed, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Crew</label>
+                                                @Html.TextBoxFor(model => veiculos.crew, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Passengers</label>
+                                                @Html.TextBoxFor(model => veiculos.passengers, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Cargo Capacity</label>
+                                                @Html.TextBoxFor(model => veiculos.cargo_capacity, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Consumables</label>
+                                                @Html.TextBoxFor(model => veiculos.consumables, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Vehicle Class</label>
+                                                @Html.TextBoxFor(model => veiculos.vehicle_class, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Created Date</label>
+                                                @Html.TextBoxFor(model => veiculos.created, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Edited Date</label>
+                                                @Html.TextBoxFor(model => veiculos.edited, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>URL</label>
+                                                @Html.TextBoxFor(model => veiculos.url, new { @class = "form-control", @readonly = "readonly", @style = "width:100% !important;" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div id="Species" class="tab-pane fade">
+            <br />
+            @if (Model.Especies != null)
+            {
+                foreach (var species in Model.Especies)
+                {
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse" aria-expanded="true" aria-controls="collapseFour">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Specie: @species.name
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                @Html.TextBoxFor(model => species.name, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Classification</label>
+                                                @Html.TextBoxFor(model => species.classification, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Designation</label>
+                                                @Html.TextBoxFor(model => species.designation, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Average Height</label>
+                                                @Html.TextBoxFor(model => species.average_height, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Skin Colors</label>
+                                                @Html.TextBoxFor(model => species.skin_colors, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Hair Colors</label>
+                                                @Html.TextBoxFor(model => species.hair_colors, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Eye Colors</label>
+                                                @Html.TextBoxFor(model => species.eye_colors, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Average Lifespan</label>
+                                                @Html.TextBoxFor(model => species.average_lifespan, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Homeworld</label>
+                                                @Html.TextBoxFor(model => species.homeworld, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Language</label>
+                                                @Html.TextBoxFor(model => species.homeworld, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Created Date</label>
+                                                @Html.TextBoxFor(model => species.created, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Edited Date</label>
+                                                @Html.TextBoxFor(model => species.edited, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>URL</label>
+                                                @Html.TextBoxFor(model => species.url, new { @class = "form-control", @readonly = "readonly", @style = "width:100% !important;" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-2.1.3.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        function toggleIcon(e) {
+            $(e.target)
+                .prev('.panel-heading')
+                .find(".more-less")
+                .toggleClass('glyphicon-plus glyphicon-minus');
+        }
+        $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+        $('.panel-group').on('shown.bs.collapse', toggleIcon);
+
+
+        //jQuery increment the ID and href of elements
+        var indexClass = 0;
+        var indexId = 0;
+        var indexAccordion = 0;
+
+        $('.panel-group').each(function () {
+            $(this).prop('id', 'accordion' + indexAccordion);
+            indexAccordion++;
+        });
+
+        $('[role=button]').each(function () {
+            $(this).prop('href', '#collapse' + indexClass);
+            indexClass++;
+        });
+
+        $('.panel-collapse').each(function () {
+            $(this).prop('id', 'collapse' + indexId);
+            indexId++;
+        });
+    });
+
+</script>

@@ -1,33 +1,85 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<SWAPI.App.Models.SwapiViewModel>
+
+@{
+    ViewBag.Title = "Início";
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
+<br/><br />
+<h2>Consulta</h2>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
-    </div>
-</main>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edited)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.url)
+        </th>
+        <th>
+            Ação
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.edited)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.url)
+            </td>
+            <td>
+                @switch (item.type)
+                {
+                    case "films":
+                        <a href="@Url.Action("Index", "Films", new { id = item.Id })" target="_blank"><i class="fa fa-search"></i></a>
+                        break;
+
+                    case "people":
+                        <a href="@Url.Action("Index", "People", new { id = item.Id })" target="_blank"><i class="fa fa-search"></i></a>
+                        break;
+
+                    case "planets":
+                        <a href="@Url.Action("Index", "Planets", new { id = item.Id })" target="_blank"><i class="fa fa-search"></i></a>
+                        break;
+
+                    case "species":
+                        <a href="@Url.Action("Index", "Species", new { id = item.Id })" target="_blank"><i class="fa fa-search"></i></a>
+                        break;
+
+                    case "starships":
+                        <a href="@Url.Action("Index", "StarsHips", new { id = item.Id })" target="_blank"><i class="fa fa-search"></i></a>
+                        break;
+
+                    case "vehicles":
+                        <a href="@Url.Action("Index", "Vehicles", new { id = item.Id })" target="_blank"><i class="fa fa-search"></i></a>
+                        break;
+                }
+            </td>
+
+
+        </tr>
+    }
+
+</table>
