@@ -1,6 +1,6 @@
 # Exemplo Consumo API SWAPI 📊📜
 O presente projeto tem como finalidade demonstrar um exemplo de como consumir uma API REST para fins de demonstração através de uma aplicação ASP.NET C# MVC 4.8.<br/>
-O projeto possui um Board para acompanhamento das issues, tarefas e demais atividades associadas ao mesmo.<br/>
+O projeto possui um Board para acompanhamento das issues, tarefas e demais atividades associadas ao mesmo localizado na aba 'Projects => Exemplo-API-SWAPI'.<br/>
 A API utilizada neste projeto foi a SWAPI, uma API divertida com foco no poder da guerra nas estrelas rsrs.
 
 ## Informações API SWAPI ☕️📌
