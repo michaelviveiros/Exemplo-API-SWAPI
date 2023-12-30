@@ -13,18 +13,21 @@ namespace SWAPI.App.Controllers
         [HttpGet]
         public async Task<ActionResult> Index(int? id)
         {
-            SwapiFilmsViewModel model = null;
-
-            try
+            if(ModelState.IsValid)
             {
-                model = await ObterDados_Films(id, Enums.TypeRequest.Full);
+                SwapiFilmsViewModel model = null;
 
-                return View(model);
-            }
+                try
+                {
+                    model = await ObterDados_Films(id, Enums.TypeRequest.Full);
 
-            catch (Exception erro)
-            {
+                    return View(model);
+                }
 
+                catch (Exception ex)
+                {
+
+                }
             }
 
             return View();
