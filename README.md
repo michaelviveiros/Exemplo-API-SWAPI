@@ -60,4 +60,4 @@ Allow: GET, HEAD, OPTIONS
 Este repositório é um projeto gratuito para a comunidade de desenvolvedores para fins de estudos e posteriores contribuições.
 
 ## Contribuição 💻✨
-Ajude a comunidade tornando este projeto ainda mais incrível através dos seus conhecimentos e conforme julgar necessário.
+Ajude a comunidade tornando este projeto ainda mais incrível através dos seus conhecimentos e contribua conforme julgar necessário.
