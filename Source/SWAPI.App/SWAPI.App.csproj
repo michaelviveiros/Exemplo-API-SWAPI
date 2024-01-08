@@ -125,6 +125,7 @@
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\PlanetsController.cs" />
     <Compile Include="Controllers\SpeciesController.cs" />
+    <Compile Include="Controllers\StarsHipsController.cs" />
     <Compile Include="Controllers\SWAPIController.cs" />
     <Compile Include="Enums\TypeRequest.cs" />
     <Compile Include="Global.asax.cs">
@@ -188,6 +189,7 @@
     <Content Include="Views\People\Index.cshtml" />
     <Content Include="Views\Planets\Index.cshtml" />
     <Content Include="Views\Species\Index.cshtml" />
+    <Content Include="Views\StarsHips\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
