@@ -8,10 +8,12 @@ A API utilizada neste projeto foi a SWAPI, uma API divertida com foco no poder d
 ## Informações API SWAPI ☕️📌
 - 🌍Link API: https://swapi.dev/<br/>
 - 📝 Documentação: https://swapi.dev/documentation<br/>
-- 🌍Link Servidor Hospedagem: http://swapi-dev.somee.com/<br/>
 - 📚Relação de Entidades:<br/>
 - 🌐Exemplo de response da entidade 'people':<br/>
   - 🖇️Link: https://swapi.dev/api/people/3
+
+## Servidor Hospedagem 🖥️📌
+- 🌍Link Servidor Hospedagem: http://swapi-dev.somee.com
 
 ## Entidades Disponíveis API SWAPI 📝☕️
 ```
