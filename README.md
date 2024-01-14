@@ -1,3 +1,5 @@
+<h6> Don't speak Portuguese? <a href="https://github.com/michaelviveiros/Exemplo-API-SWAPI/blob/main/master/README-en.md">Click here</a> to view this page in English.</h6>
+
 # Exemplo Consumo API SWAPI 📊📜
 O presente projeto tem como finalidade demonstrar um exemplo de como consumir uma API REST para fins de demonstração através de uma aplicação ASP.NET C# MVC 4.8.<br/>
 O projeto possui um Board para acompanhamento das issues, tarefas e demais atividades associadas ao mesmo localizado na aba 'Projects => Exemplo-API-SWAPI'.<br/>
