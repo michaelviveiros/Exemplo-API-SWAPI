@@ -13,7 +13,7 @@ The API used in this project was SWAPI, a fun API focused on the power of Star W
   - 🖇️Link: https://swapi.dev/api/people/3
  
 ## Hosting Server 🖥️📌
-- 🌍Hosting Server Link: http://swapi-dev.somee.com/<br/>
+- 🌍Hosting Server Link: http://swapi-dev.somee.com/
 
 ## SWAPI API Available Entities 📝☕️
 ```
